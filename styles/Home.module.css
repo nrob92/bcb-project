@@ -1,116 +1,167 @@
-.container {
-  padding: 0 2rem;
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+.navLink {
+  white-space: nowrap;
+  padding: 10px;
+  margin: 0 15px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.navLink:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navLink:last-child {
+  background-color: rgb(0, 64, 128);
+}
+
+.navLink:last-child:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navWrapper button {
+  display: none;
+}
+
+.verticalNavLink {
+  opacity: 0.7;
+  text-align: center;
+  white-space: nowrap;
+  padding: 20px 10px;
+  background-color: rgb(230, 228, 224);
+  margin: 10px 5px;
+  color: rgb(25, 33, 33);
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.verticalNavLink:hover {
+  background-color: rgba(230, 228, 224, 0.5);
+}
+
+.links {
+  display: flex;
+}
+
+.mainWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.mainWrapperInner {
+  height: 100vh;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 120px;
+}
+
+.verticalNav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  position: fixed;
+  height: 100%;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
+.glass {
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.nftCard {
+  position: relative;
+  z-index: 1;
+  height: 350px;
+  width: 250px;
+  padding: 15px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.nftCard > * {
+  margin-bottom: 5px;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.nftImage {
+  width: 100%;
+  height: 100%;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.footerNft {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
+@media only screen and (max-width: 700px) {
+  .navWrapper button {
+    display: flex;
+    padding: 10px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .navLink {
+    margin: 5px;
+    text-align: center;
+  }
+  .verticalNavLink {
+    padding: 15px 5px;
+  }
+
+  #hidden {
+    position: absolute;
+    display: flex;
     flex-direction: column;
+    align-items: stretch;
+    left: 0px;
+    top: 80px;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(12, 28, 64);
+    z-index: 9999;
+    margin: 5px;
+    text-align: center;
+    transition: all 1s ease-in;
   }
 }
